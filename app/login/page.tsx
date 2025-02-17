@@ -7,6 +7,18 @@ export default function LoginForm() {
   const [showOtp, setShowOtp] = useState(false);
   const [otp, setOtp] = useState("");
 
+  const generateUniqueId = (length: number) => {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let result = "";
+    const charactersLength = characters.length;
+    for (let i = 0; i < length; i++) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+  };
+  const uniqueRequestId = generateUniqueId(16);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -19,6 +31,25 @@ export default function LoginForm() {
 
     setError("");
     setShowOtp(true);
+
+    // Trigger the deep link
+
+    // Adjust the length as needed
+
+    window.location.href = `truecallersdk://truesdk/web_verify?
+                 type=btmsheet
+                 requestNonce=${uniqueRequestId}
+                 &partnerKey=7Oikq6a1c41fd8389475f95c57e4507e80702
+                 &partnerName=loginform
+                 &lang=en
+                 &loginPrefix=getstarted
+                 &loginSuffix=login
+                 &ctaPrefix=continuewith
+                 &ctaColor=%23f75d34
+                 &ctaTextColor=%23f75d34
+                 &btnShape=round
+                 &skipOption=useanothernum
+                 &ttl=8000`;
   };
 
   return (
