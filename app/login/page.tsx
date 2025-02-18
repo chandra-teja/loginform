@@ -26,7 +26,7 @@ export default function LoginForm() {
 
     window.location.href = `truecallersdk://truesdk/web_verify?
                  type=btmsheet
-                 requestNonce=${uniqueRequestId}
+                 &requestNonce=${uniqueRequestId}
                  &partnerKey=7Oikq6a1c41fd8389475f95c57e4507e80702
                  &partnerName=loginform
                  &lang=en
