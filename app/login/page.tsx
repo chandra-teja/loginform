@@ -21,6 +21,8 @@ export default function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError("");
+    setShowOtp(false);
 
     window.location.href = `truecallersdk://truesdk/web_verify?
                  type=btmsheet
