@@ -50,7 +50,6 @@ export default function LoginForm() {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           placeholder="Enter your phone number"
-          required
         />
         {error && <p className="error">{error}</p>}
         <button type="submit">Login</button>
