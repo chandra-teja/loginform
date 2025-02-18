@@ -22,20 +22,6 @@ export default function LoginForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Basic phone number validation
-    const phoneRegex = /^\+?[0-9]{10,15}$/;
-    if (!phoneRegex.test(phone)) {
-      setError("Please enter a valid phone number.");
-      return;
-    }
-
-    setError("");
-    setShowOtp(true);
-
-    // Trigger the deep link
-
-    // Adjust the length as needed
-
     window.location.href = `truecallersdk://truesdk/web_verify?
                  type=btmsheet
                  requestNonce=${uniqueRequestId}
